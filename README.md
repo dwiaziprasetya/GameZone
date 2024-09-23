@@ -1,4 +1,4 @@
-# gamezone
+# Game Zone
 
 A new Flutter project.
 
