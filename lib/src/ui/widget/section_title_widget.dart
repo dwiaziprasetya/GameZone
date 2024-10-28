@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class SectionTitle extends StatelessWidget {
   final String title;
   final String actionText;
+  final Color color;
 
   const SectionTitle({
     super.key,
     required this.title,
     required this.actionText,
+    this.color = Colors.white,
   });
 
   @override
@@ -19,15 +21,15 @@ class SectionTitle extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: color,
               fontFamily: 'DMSans',
             ),
           ),
           Text(
             actionText,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: color,
               fontFamily: 'DMSans',
             ),
           ),

@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
                     ),
                   ),
                   const SectionTitle(
-                    title: 'Upcoming Games',
+                    title: 'Upcoming ',
                     actionText: 'See all',
                   ),
                   SizedBox(
