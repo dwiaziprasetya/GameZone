@@ -32,3 +32,9 @@ flutter:
         - asset: assets/font/poppinslight.ttf
         - asset: assets/font/poppinsmedium.ttf
         - asset: assets/font/poppinsbold.ttf
+    - family: DMSans
+      fonts:
+        - asset: assets/font/dmsanslight.ttf
+        - asset: assets/font/dmsansregular.ttf
+        - asset: assets/font/dmsansmedium.ttf
+        - asset: assets/font/dmsansbold.ttf

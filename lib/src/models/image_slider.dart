@@ -15,7 +15,7 @@ var imageSliderData = [
   ),
   ImageSlider(
     title: 'Black Myth Wukong',
-    imageAsset: 'assets/images/image_slider_black_myth_wukong.jpg',
+    imageAsset: 'assets/images/image_slider_friday_the_13_th.jpg',
   ),
   ImageSlider(
     title: 'God of War',

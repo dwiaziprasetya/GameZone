@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gamezone/src/models/image_slider.dart';
@@ -35,7 +34,7 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
               ).toList(),
               carouselController: _controller,
               options: CarouselOptions(
-                height: 260,
+                height: 280,
                 viewportFraction: 1,
                 autoPlay: true,
                 onPageChanged: (index, reason) {
@@ -52,7 +51,7 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      backgroundColor.withOpacity(0.9),
+                      backgroundColor.withOpacity(0.89),
                       Colors.transparent,
                     ],
                     stops: const [0, 1],
@@ -64,24 +63,27 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: imageSliderData.asMap().entries.map((entry) {
-            return GestureDetector(
-              onTap: () => _controller.animateToPage(entry.key),
-              child: Container(
-                width: 6.0,
-                height: 6.0,
-                margin:
-                    const EdgeInsets.symmetric(vertical: 0, horizontal: 4.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white
-                      .withOpacity(_current == entry.key ? 0.9 : 0.4),
+        Transform.translate(
+          offset: const Offset(16, -20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: imageSliderData.asMap().entries.map((entry) {
+              return GestureDetector(
+                onTap: () => _controller.animateToPage(entry.key),
+                child: Container(
+                  width: 6.0,
+                  height: 6.0,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white
+                        .withOpacity(_current == entry.key ? 0.9 : 0.4),
+                  ),
                 ),
-              ),
-            );
-          }).toList(),
+              );
+            }).toList(),
+          ),
         ),
       ],
     );
