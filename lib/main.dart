@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/src/ui/screen/detail_screen.dart';
+import 'package:gamezone/src/ui/screen/main_screen.dart';
 import 'package:gamezone/src/ui/theme/color.dart';
 
 void main() {
@@ -15,10 +15,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Game Zone',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: backgroundColor,
-          appBarTheme: const AppBarTheme(backgroundColor: backgroundColor)),
-      home: const DetailScreen(),
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: backgroundColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: backgroundColor,
+        ),
+      ),
+      home: const MainScreen(),
     );
   }
 }

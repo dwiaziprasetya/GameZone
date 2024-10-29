@@ -28,8 +28,8 @@ class SectionTitle extends StatelessWidget {
           ),
           Text(
             actionText,
-            style: TextStyle(
-              color: color,
+            style: const TextStyle(
+              color: Colors.amberAccent,
               fontFamily: 'DMSans',
             ),
           ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/src/models/image_poster.dart';
 import 'package:gamezone/src/models/image_snapshot.dart';
+import 'package:gamezone/src/models/model_game.dart';
 import 'package:gamezone/src/ui/theme/color.dart';
 import 'package:gamezone/src/ui/widget/section_title_widget.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  final GameModel game;
+
+  const DetailScreen({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class DetailScreen extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  'assets/images/image_detail_god_of_war_ragnarok.jpg',
+                  game.imageDetailAsset,
                   height: 300,
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
@@ -46,40 +48,38 @@ class DetailScreen extends StatelessWidget {
               ),
               child: Transform.translate(
                 offset: const Offset(0, -30),
-                child: const SizedBox(
-                  width: 300,
-                  child: Text(
-                    'God of War Ragnarok',
-                    style: TextStyle(
-                      fontFamily: 'DMSans',
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                child: Text(
+                  game.name,
+                  maxLines: 2,
+                  style: const TextStyle(
+                    fontFamily: 'DMSans',
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Santa Monica Studio',
-                    style: TextStyle(
+                    game.publisher,
+                    style: const TextStyle(
                       fontFamily: 'DMSans',
                       fontSize: 16,
                       color: Colors.amberAccent,
                       height: 1.5,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
-                    'God of War Ragnarök is an action-adventure game where players take the role of Kratos and his son as they embark on a quest to prevent the coming of Ragnarök. Players explore the Nine Realms, battling enemies in close-up, hand-to-hand combat against human-like raiders and fantastical creatures.',
-                    style: TextStyle(
+                    game.description,
+                    style: const TextStyle(
                       fontFamily: 'DMSans',
                       fontSize: 16,
                       color: Colors.white70,
@@ -105,7 +105,6 @@ class DetailScreen extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    final ImageSnapshot snapshot = imageSnapshotData[index];
                     return Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: Padding(
@@ -121,7 +120,7 @@ class DetailScreen extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.asset(
-                                    snapshot.imageAsset,
+                                    game.imageUrls[index],
                                     width: 250,
                                     fit: BoxFit.cover,
                                   ),

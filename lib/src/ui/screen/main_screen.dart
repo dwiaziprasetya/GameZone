@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gamezone/src/models/image_poster.dart';
+import 'package:gamezone/src/models/model_game.dart';
+import 'package:gamezone/src/ui/screen/detail_screen.dart';
 import 'package:gamezone/src/ui/widget/image_slider_widget.dart';
 import 'package:gamezone/src/ui/widget/item_game.dart';
 import 'package:gamezone/src/ui/widget/section_title_widget.dart';
@@ -9,6 +13,9 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<GameModel> shuffledGameData = List.from(gameModelData)
+      ..shuffle(Random());
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -53,14 +60,19 @@ class MainScreen extends StatelessWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        final ImagePoster poster = imagePosterData[index];
+                        final GameModel game = gameModelData[index];
                         return Padding(
                           padding: const EdgeInsets.only(right: 16),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailScreen(game: game);
+                              }));
+                            },
                             child: Padding(
                               padding: const EdgeInsets.only(top: 16.0),
-                              child: GameItem(poster: poster),
+                              child: GameItem(game: game),
                             ),
                           ),
                         );
@@ -69,7 +81,7 @@ class MainScreen extends StatelessWidget {
                     ),
                   ),
                   const SectionTitle(
-                    title: 'Upcoming ',
+                    title: 'Upcoming Games',
                     actionText: 'See all',
                   ),
                   SizedBox(
@@ -77,14 +89,19 @@ class MainScreen extends StatelessWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        final ImagePoster poster = imagePosterData[index];
+                        final GameModel game = shuffledGameData[index];
                         return Padding(
                           padding: const EdgeInsets.only(right: 16),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailScreen(game: game);
+                              }));
+                            },
                             child: Padding(
                               padding: const EdgeInsets.only(top: 16.0),
-                              child: GameItem(poster: poster),
+                              child: GameItem(game: game),
                             ),
                           ),
                         );

@@ -64,9 +64,9 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
           ],
         ),
         Transform.translate(
-          offset: const Offset(16, -20),
+          offset: const Offset(0, -20),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: imageSliderData.asMap().entries.map((entry) {
               return GestureDetector(
                 onTap: () => _controller.animateToPage(entry.key),
@@ -77,8 +77,8 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
                       const EdgeInsets.symmetric(vertical: 0, horizontal: 4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white
-                        .withOpacity(_current == entry.key ? 0.9 : 0.4),
+                    color: Colors.amberAccent
+                        .withOpacity(_current == entry.key ? 0.9 : 0.3),
                   ),
                 ),
               );

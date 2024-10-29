@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone/src/models/image_poster.dart';
+import 'package:gamezone/src/models/model_game.dart';
 
 class GameItem extends StatelessWidget {
   const GameItem({
     super.key,
-    required this.poster,
+    required this.game,
   });
 
-  final ImagePoster poster;
+  final GameModel game;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class GameItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                poster.imageAsset,
+                game.imageAsset,
                 width: 130,
                 fit: BoxFit.cover,
               ),
@@ -33,7 +33,7 @@ class GameItem extends StatelessWidget {
           SizedBox(
             width: 130,
             child: Text(
-              poster.name,
+              game.name,
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'DMSans',
