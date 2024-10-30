@@ -3,6 +3,7 @@ class GameModel {
   String imageAsset;
   String imageDetailAsset;
   String publisher;
+  String genre;
   String description;
   List<String> imageUrls;
 
@@ -11,6 +12,7 @@ class GameModel {
     required this.imageAsset,
     required this.imageDetailAsset,
     required this.publisher,
+    required this.genre,
     required this.description,
     required this.imageUrls,
   });
@@ -29,6 +31,7 @@ var gameModelData = [
       'assets/images/image_snapshot_ghost_of_tsushima_2.jpg',
       'assets/images/image_snapshot_ghost_of_tsushima_3.jpg',
     ],
+    genre: 'Action | Adventure | Open World',
   ),
   GameModel(
     name: 'Black Myth Wukong',
@@ -42,6 +45,7 @@ var gameModelData = [
       'assets/images/image_snapshot_black_myth_wukong_2.jpg',
       'assets/images/image_snapshot_black_myth_wukong_3.jpg',
     ],
+    genre: 'Action | RPG | Fantasy',
   ),
   GameModel(
     name: 'Elden Ring',
@@ -55,6 +59,7 @@ var gameModelData = [
       'assets/images/image_snapshot_elden_ring_2.jpg',
       'assets/images/image_snapshot_elden_ring_3.jpg',
     ],
+    genre: 'Action | RPG | Open World',
   ),
   GameModel(
     name: 'Ratchet & Clank: Rift Apart',
@@ -68,6 +73,7 @@ var gameModelData = [
       'assets/images/image_snapshot_ratchet_and_clank_2.jpg',
       'assets/images/image_snapshot_ratchet_and_clank_3.jpg',
     ],
+    genre: 'Action | Adventure | Platformer',
   ),
   GameModel(
     name: 'EA Sport FC 25',
@@ -81,6 +87,7 @@ var gameModelData = [
       'assets/images/image_snapshot_ea_fc_25_2.jpg',
       'assets/images/image_snapshot_ea_fc_25_3.jpg',
     ],
+    genre: 'Sports | Simulation | Multiplayer',
   ),
   GameModel(
     name: 'God of War Ragnarok',
@@ -94,6 +101,7 @@ var gameModelData = [
       'assets/images/image_snapshot_god_of_war_ragnarok_2.jpg',
       'assets/images/image_snapshot_god_of_war_ragnarok_3.jpg',
     ],
+    genre: 'Action | Adventure | Fantasy',
   ),
   GameModel(
     name: 'The Last of Us',
@@ -107,5 +115,6 @@ var gameModelData = [
       'assets/images/image_snapshot_the_last_of_us_2.jpg',
       'assets/images/image_snapshot_the_last_of_us_3.jpg',
     ],
+    genre: 'Action | Adventure | Survival',
   ),
 ];
