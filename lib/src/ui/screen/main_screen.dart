@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gamezone/src/models/image_poster.dart';
@@ -14,9 +12,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<GameModel> shuffledGameData = List.from(gameModelData)
-      ..shuffle(Random());
-
     return AnnotatedRegion(
       value: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
       child: Scaffold(
@@ -30,6 +25,7 @@ class MainScreen extends StatelessWidget {
                   left: 16.0,
                   right: 16.0,
                   top: 4,
+                  bottom: 16,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start, // Set to start
@@ -83,33 +79,99 @@ class MainScreen extends StatelessWidget {
                         itemCount: imagePosterData.length,
                       ),
                     ),
-                    const SectionTitle(
-                      title: 'Upcoming Games',
-                      actionText: 'See all',
+                    const Padding(
+                      padding: EdgeInsets.only(top: 32),
+                      child: Center(
+                        child: Text(
+                          'Top 5 Games this Month',
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontFamily: 'DMSans',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(
-                      height: 230,
+                      height: 250,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
+                        itemCount: topGameModelData.length,
                         itemBuilder: (context, index) {
-                          final GameModel game = shuffledGameData[index];
+                          final GameModel topGame = topGameModelData[index];
                           return Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: InkWell(
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return DetailScreen(game: game);
+                                  return DetailScreen(game: topGame);
                                 }));
                               },
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 16.0),
-                                child: GameItem(game: game),
+                                padding: const EdgeInsets.only(top: 32.0),
+                                child: SizedBox(
+                                  width: 300,
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Image.asset(
+                                          topGame.imageAsset,
+                                          width: 300,
+                                          height: 250,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Colors.black.withOpacity(0.7),
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              bottomLeft: Radius.circular(10),
+                                              bottomRight: Radius.circular(10),
+                                            ),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                topGame.name,
+                                                style: const TextStyle(
+                                                  fontFamily: 'DMSans',
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 4),
+                                              Text(
+                                                "${topGame.review} reviews",
+                                                style: const TextStyle(
+                                                  fontFamily: 'DMSans',
+                                                  color: Colors.white70,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           );
                         },
-                        itemCount: imagePosterData.length,
                       ),
                     ),
                   ],

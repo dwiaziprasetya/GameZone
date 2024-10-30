@@ -6,6 +6,7 @@ class GameModel {
   String genre;
   String description;
   List<String> imageUrls;
+  double review;
 
   GameModel({
     required this.name,
@@ -15,8 +16,85 @@ class GameModel {
     required this.genre,
     required this.description,
     required this.imageUrls,
+    this.review = 0.0,
   });
 }
+
+var topGameModelData = [
+  GameModel(
+    name: 'EA Sport FC 25',
+    imageAsset: 'assets/images/image_snapshot_ea_fc_25_1.jpg',
+    imageDetailAsset: 'assets/images/image_snapshot_ea_fc_25_1.jpg',
+    publisher: 'Electronic Arts',
+    description:
+        'EA SPORTS FC™ 25 gives you more ways to win for the club. Team up with friends in your favourite modes with the new 5v5 Rush, and manage your club to victory as FC IQ delivers more tactical control than ever before.',
+    imageUrls: [
+      'assets/images/image_detail_fc_25.jpg',
+      'assets/images/image_snapshot_ea_fc_25_2.jpg',
+      'assets/images/image_snapshot_ea_fc_25_3.jpg',
+    ],
+    genre: 'Sports | Simulation | Multiplayer',
+    review: 16.135,
+  ),
+  GameModel(
+      name: 'The Last of Us',
+      imageAsset: 'assets/images/image_snapshot_the_last_of_us_2.jpg',
+      imageDetailAsset: 'assets/images/image_detail_the_last_of_us.jpg',
+      publisher: 'PlayStation',
+      description:
+          'In a ravaged civilization, where infected and hardened survivors run rampant, Joel, a weary protagonist, is hired to smuggle 14-year-old Ellie out of a military quarantine zone. However, what starts as a small job soon transforms into a brutal cross-country journey.',
+      imageUrls: [
+        'assets/images/image_snapshot_the_last_of_us_1.jpg',
+        'assets/images/image_snapshot_the_last_of_us_2.jpg',
+        'assets/images/image_snapshot_the_last_of_us_3.jpg',
+      ],
+      genre: 'Action | Adventure | Survival',
+      review: 194.304),
+  GameModel(
+      name: 'God of War Ragnarok',
+      imageAsset: 'assets/images/image_snapshot_god_of_war_ragnarok_2.jpg',
+      imageDetailAsset: 'assets/images/image_detail_god_of_war_ragnarok.jpg',
+      publisher: 'PlayStation',
+      description:
+          'God of War Ragnarök is an action-adventure game where players take the role of Kratos and his son as they embark on a quest to prevent the coming of Ragnarök. Players explore the Nine Realms, battling enemies in close-up, hand-to-hand combat against human-like raiders and fantastical creatures.',
+      imageUrls: [
+        'assets/images/image_snapshot_god_of_war_ragnarok_1.jpg',
+        'assets/images/image_snapshot_god_of_war_ragnarok_2.jpg',
+        'assets/images/image_snapshot_god_of_war_ragnarok_3.jpg',
+      ],
+      genre: 'Action | Adventure | Fantasy',
+      review: 76.979),
+  GameModel(
+    name: 'Black Myth Wukong',
+    imageAsset: 'assets/images/image_snapshot_black_myth_wukong_2.jpg',
+    imageDetailAsset: 'assets/images/image_snapshot_black_myth_wukong_2.jpg',
+    publisher: 'Game Science',
+    description:
+        'Black Myth: Wukong is an action RPG rooted in Chinese mythology. The story is based on Journey to the West, one of the Four Great Classical Novels of Chinese literature. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.',
+    imageUrls: [
+      'assets/images/image_snapshot_black_myth_wukong_1.jpg',
+      'assets/images/image_detail_black_myth_wukong.jpg',
+      'assets/images/image_snapshot_black_myth_wukong_3.jpg',
+    ],
+    genre: 'Action | RPG | Fantasy',
+    review: 712.576,
+  ),
+  GameModel(
+    name: 'Ghost of Tsushima',
+    imageAsset: 'assets/images/image_snapshot_ghost_of_tsushima_2.jpg',
+    imageDetailAsset: 'assets/images/image_snapshot_ghost_of_tsushima_2.jpg',
+    publisher: 'PlayStation',
+    description:
+        'As the island burns in the wake of the first wave of the Mongol assault, courageous samurai warrior Jin Sakai stands resolute. As one of the last surviving members of his clan, Jin is resolved to do whatever it takes, at any cost, to protect his people and reclaim his home. He must set aside the traditions that have shaped him as a warrior to forge a new path, the path of the Ghost, and wage an unconventional war for the freedom of Tsushima.',
+    imageUrls: [
+      'assets/images/image_snapshot_ghost_of_tsushima_1.jpg',
+      'assets/images/image_snapshot_ghost_of_tsushima_2.jpg',
+      'assets/images/image_snapshot_ghost_of_tsushima_3.jpg',
+    ],
+    genre: 'Action | Adventure | Open World',
+    review: 29.886,
+  ),
+];
 
 var gameModelData = [
   GameModel(
@@ -36,13 +114,13 @@ var gameModelData = [
   GameModel(
     name: 'Black Myth Wukong',
     imageAsset: 'assets/images/poster_black_myth_wukong.jpg',
-    imageDetailAsset: 'assets/images/image_detail_black_myth_wukong.jpg',
+    imageDetailAsset: 'assets/images/image_snapshot_black_myth_wukong_2.jpg',
     publisher: 'Game Science',
     description:
         'Black Myth: Wukong is an action RPG rooted in Chinese mythology. The story is based on Journey to the West, one of the Four Great Classical Novels of Chinese literature. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.',
     imageUrls: [
       'assets/images/image_snapshot_black_myth_wukong_1.jpg',
-      'assets/images/image_snapshot_black_myth_wukong_2.jpg',
+      'assets/images/image_detail_black_myth_wukong.jpg',
       'assets/images/image_snapshot_black_myth_wukong_3.jpg',
     ],
     genre: 'Action | RPG | Fantasy',
@@ -78,12 +156,12 @@ var gameModelData = [
   GameModel(
     name: 'EA Sport FC 25',
     imageAsset: 'assets/images/poster_fc_25.jpg',
-    imageDetailAsset: 'assets/images/image_detail_fc_25.jpg',
+    imageDetailAsset: 'assets/images/image_snapshot_ea_fc_25_1.jpg',
     publisher: 'Electronic Arts',
     description:
         'EA SPORTS FC™ 25 gives you more ways to win for the club. Team up with friends in your favourite modes with the new 5v5 Rush, and manage your club to victory as FC IQ delivers more tactical control than ever before.',
     imageUrls: [
-      'assets/images/image_snapshot_ea_fc_25_1.jpg',
+      'assets/images/image_detail_fc_25.jpg',
       'assets/images/image_snapshot_ea_fc_25_2.jpg',
       'assets/images/image_snapshot_ea_fc_25_3.jpg',
     ],
