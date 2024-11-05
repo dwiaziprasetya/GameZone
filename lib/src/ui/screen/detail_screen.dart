@@ -43,6 +43,48 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor:
+                                const Color.fromRGBO(162, 162, 162, 0.702),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              const FavouriteButton(),
+                              const SizedBox(
+                                width: 16,
+                              ),
+                              CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromRGBO(162, 162, 162, 0.702),
+                                child: IconButton(
+                                  icon: const Icon(
+                                    Icons.share,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Padding(
@@ -157,6 +199,35 @@ class DetailScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class FavouriteButton extends StatefulWidget {
+  const FavouriteButton({super.key});
+
+  @override
+  State<FavouriteButton> createState() => _FavouriteButtonState();
+}
+
+class _FavouriteButtonState extends State<FavouriteButton> {
+  bool isFavourite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: const Color.fromRGBO(162, 162, 162, 0.702),
+      child: IconButton(
+        onPressed: () {
+          setState(() {
+            isFavourite = !isFavourite;
+          });
+        },
+        icon: Icon(
+          isFavourite ? Icons.favorite : Icons.favorite_border,
+          color: isFavourite ? Colors.red : Colors.white,
         ),
       ),
     );
