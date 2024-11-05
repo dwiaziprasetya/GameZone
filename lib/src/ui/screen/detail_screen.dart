@@ -4,6 +4,7 @@ import 'package:gamezone/src/models/model_game.dart';
 import 'package:gamezone/src/ui/theme/color.dart';
 import 'package:gamezone/src/ui/widget/section_title_widget.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DetailScreen extends StatelessWidget {
   final GameModel game;
@@ -76,7 +77,9 @@ class DetailScreen extends StatelessWidget {
                                     Icons.share,
                                     color: Colors.white,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Share.share(game.name);
+                                  },
                                 ),
                               ),
                             ],
