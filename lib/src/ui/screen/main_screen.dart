@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gamezone/src/models/image_poster.dart';
 import 'package:gamezone/src/models/model_game.dart';
 import 'package:gamezone/src/ui/screen/detail_screen.dart';
 import 'package:gamezone/src/ui/widget/image_slider_widget.dart';
@@ -17,7 +16,7 @@ class MainScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Set to start
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const ImageSliderWidget(),
               Padding(
@@ -28,7 +27,7 @@ class MainScreen extends StatelessWidget {
                   bottom: 16,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, // Set to start
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Center(
                       child: Text(
@@ -56,10 +55,13 @@ class MainScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 230,
+                      width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
+                        itemCount: gameModelData.length * 2,
                         itemBuilder: (context, index) {
-                          final GameModel game = gameModelData[index];
+                          final int actualIndex = index % gameModelData.length;
+                          final GameModel game = gameModelData[actualIndex];
                           return Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: InkWell(
@@ -76,7 +78,6 @@ class MainScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        itemCount: imagePosterData.length,
                       ),
                     ),
                     const Padding(
